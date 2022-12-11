@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Loginstyle.css" />
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="483378984663-fe8kpcdb4brm9o0iedmqo3djkus5l2qa.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <div class="login">
+    <h1 onclick="onClick()">Spotify®</h1>
+    <hr />
+
+    <button class="button" onclick="onGoogleSignIn()">
+      Continue with Google
+    </button>
+    <br /><br />
+    <button class="button">Continue with Facebook</button>
+    <br /><br />
+    <button class="button">Continue with Apple</button>
+    <br /><br />
+    <button class="button">Continue with Mobile Number</button>
+    <br /><br />
+    <h5><span>Or</span></h5>
+
+    <form action="loggedin" method="post">
+      <input type="text" id="mail" name="mail" placeholder="Enter mail" />
+      <br /><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+      />
+      <br /><br />
+      <button class="log" onclick="onLogIn()">LOG IN</button>
+    </form>
+    <hr />
+    <h4>Don't have an account? <a href="register">Sign Up</a></h4>
+  </div>
+  <script src="login.js"></script>
+</html>

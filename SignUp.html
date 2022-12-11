@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <div class="login">
+    <h1 onclick="onClick()">Spotify®</h1>
+    <h3>Sign up for free to start listening.</h3>
+    <hr />
+    <button class="button">Continue with Google</button>
+    <br /><br />
+    <button class="button">Continue with Facebook</button>
+    <br /><br />
+    <h5><span>Or</span></h5>
+
+    <form action="submitted" method="post">
+      <label>What's your email?</label>
+      <br />
+      <input type="text" id="mail1" placeholder="Enter mail" required />
+      <br /><br />
+      <label>Confirm your email</label>
+      <br />
+      <input
+        id="mail2"
+        type="text"
+        placeholder="Enter mail"
+        name="mail"
+        required
+      />
+      <br /><br />
+      <label>Create Password</label>
+      <br />
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        name="password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        required
+      />
+      <br /><br />
+      <label>What's your date of birth?</label>
+      <br />
+      <input id="birthday" type="date" id="birthday" name="birthday" />
+      <br /><br />
+      <label>What's your Gender?</label>
+      <br /><br />
+      <div class="gender">
+        <input
+          type="radio"
+          name="gender"
+          value="Male"
+          id="gender"
+          style="margin-right: 0"
+        />
+        <label for="html">Male</label><br />
+        <input
+          id="gender"
+          type="radio"
+          name="gender"
+          value="Female"
+          style="margin-right: 0"
+        />
+        <label for="css">Female</label><br />
+        <input
+          type="radio"
+          name="gender"
+          value="other"
+          style="margin-right: 0"
+        />
+        <label for="javascript">Other</label>
+      </div>
+      <br /><br />
+      <div class="checkbox">
+        <input type="checkbox" required /><label
+          >I would prefer not to receive marketing messages from Spotify</label
+        >
+        <br />
+        <input type="checkbox" required /><label
+          >Share my registration data with Spotify's content providers for
+          marketing purposes.</label
+        >
+        <br /><br />
+      </div>
+
+      <button class="log" onclick="onSubmit()">SIGN UP</button>
+    </form>
+    <hr />
+    <h4>Have an account? <a href="login">Log In</a></h4>
+    <br /><br />
+  </div>
+  <script src="signup.js"></script>
+</html>
