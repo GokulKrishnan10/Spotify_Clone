@@ -2,10 +2,20 @@ function onClick() {
   window.location = "spotify";
 }
 function onSubmit() {
-  window.location = "submitted";
-  console.log("CLICKED SUBMIT");
-
-  console.log("SUBMITTED");
+  // window.location = "submitted";
+  fetch("localhost:3000/submitted", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      console.log("DATA INSERTED", res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   var mail1 = document.getElementById("mail1").value;
   var mail2 = document.getElementById("mail2").value;
