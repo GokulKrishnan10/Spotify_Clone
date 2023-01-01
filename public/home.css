@@ -13,7 +13,7 @@ body {
   background-color: rgb(0, 0, 0);
   height: 100%;
 }
-h1 {
+#top {
   color: white;
   background-color: rgb(0, 0, 0);
 }
@@ -60,6 +60,10 @@ i {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+/* .head {
+  clear: left;
+} */
 
 .side-div li:hover {
   background-color: rgb(16, 16, 16);
@@ -174,7 +178,7 @@ a {
   text-decoration: none;
   color: white;
 }
-h1:hover {
+#top:hover {
   cursor: pointer;
 }
 .play {
@@ -271,4 +275,23 @@ h1:hover {
   margin-top: 0%;
   width: 100%;
   margin-left: 0%;
+}
+#h1 {
+  color: white;
+  margin-top: 1.5cm;
+  margin-left: 1cm;
+  width: 12cm;
+  background-color: transparent;
+  height: 1cm;
+}
+#h1-2 {
+  color: white;
+  margin-top: 3cm;
+
+  background-color: transparent;
+  height: 1cm;
+}
+#h3 {
+  color: white;
+  margin-top: 6cm;
 }

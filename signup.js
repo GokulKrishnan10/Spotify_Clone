@@ -2,7 +2,6 @@ function onClick() {
   window.location = "spotify";
 }
 function onSubmit() {
-  // window.location = "submitted";
   fetch("localhost:3000/submitted", {
     method: "POST",
     headers: {

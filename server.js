@@ -92,7 +92,9 @@ app.post("/loggedin", (req, res) => {
           res.send("REGISTER FIRST");
           return;
         }
-        res.send("Successfully LOGGED IN");
+        res.send(`Successfully LOGGED IN
+        <br>
+        <h1><a href="spotify">HOME PAGE</a></h1>`);
         console.log(result);
       });
   });

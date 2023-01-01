@@ -2,22 +2,22 @@ function onClick() {
   window.location = "register";
 }
 
-function onLogIn() {
+function onLogIn(event) {
   console.log("LoGGING IN");
-  window.location = "loggedin";
-  // fetch("localhost:3000/loggedin", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //   },
-  //   body: JSON.parse(data),
-  // })
-  //   .then((res) => {
-  //     console.log("DATA INSERTED", res);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  //window.location = "loggedin";
+  fetch("localhost:3000/loggedin", {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.parse(data),
+  })
+    .then((res) => {
+      console.log("DATA INSERTED", res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function onGoogleSignIn(googleUser) {
