@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const bodyParser = require("body-parser");
+require("dotenv").config();
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017/";
 app.use(express.static("public"));
@@ -41,8 +42,6 @@ app.get("/:id", (req, res) => {
 
 app.post("/submitted", (req, res) => {
   var forms = req.body;
-  console.log("FORM VALUES ", forms);
-  console.log(url, MongoClient);
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("FORM");
@@ -56,7 +55,6 @@ app.post("/submitted", (req, res) => {
       .find({ mail: forms.mail })
       .toArray((error, result) => {
         if (result.length !== 0) {
-          console.log("LENGTH IS ", result.length);
           res.write(
             `<h1>MAIL ALREADY TAKEN <a href="register">REGISTER</a></h1>`
           );
@@ -65,7 +63,6 @@ app.post("/submitted", (req, res) => {
         } else {
           dbo.collection("customers").insertOne(myobj, function (err, res1) {
             if (err) throw err;
-            console.log("1 document inserted");
             res.write(`<h1>Successfully Created Account</h1>
                        <h2>Welcome, ${forms.mail}</h2>`);
             res.end();
@@ -78,8 +75,6 @@ app.post("/submitted", (req, res) => {
 
 app.post("/loggedin", (req, res) => {
   var forms = req.body;
-  console.log(forms);
-  console.log(url, MongoClient);
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("FORM");
