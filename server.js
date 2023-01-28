@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
-const connection = require("./connect");
+const PORT = process.env.PORT;
+require("./connect");
 const User = require("./user");
 const bodyParser = require("body-parser");
 require("dotenv").config();
@@ -42,9 +42,6 @@ app.get("/:id", (req, res) => {
 app.post("/submitted", (req, res) => {
   var forms = req.body;
   console.log(forms);
-  // MongoClient.connect(url, function (err, db) {
-  //   if (err) throw err;
-  //   var dbo = db.db("FORM");
   const newUser = new User({
     email: forms.mail,
     password: forms.password,
