@@ -5,5 +5,5 @@ node_modules
 ./image_upload/*.jfif
 .env
 *.jpg
-selena.jfif
+"selena.jfif"
 *.png
