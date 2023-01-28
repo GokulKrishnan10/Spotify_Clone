@@ -3,6 +3,8 @@ node_modules
 ./public/*.jpg
 ./public/*.png
 ./public/*.jfif
+./public/shakira.jfif
+./public/harry.jfif
 .env
 *.jpg
 *.jfif

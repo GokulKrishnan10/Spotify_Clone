@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT;
 require("./connect");
 const User = require("./user");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+const PORT = process.env.PORT;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`SERVER RUNNING ON PORT ${PORT}`);
 });
 
