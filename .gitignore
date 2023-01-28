@@ -1,6 +1,9 @@
 node_modules
 ./image_upload/.env
+./image_upload/*.jpg
+./image_upload/*.png
+/image_upload/*.jfif
 .env
-*.jpg
-*.jfif
-*.png
+/*.jpg
+/*.jfif
+/*.png
