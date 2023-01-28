@@ -2,8 +2,8 @@ node_modules
 ./image_upload/.env
 ./image_upload/*.jpg
 ./image_upload/*.png
-/image_upload/*.jfif
+./image_upload/*.jfif
 .env
 *.jpg
-*.jfif
+selena.jfif
 *.png
