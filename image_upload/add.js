@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Image = require("./image");
 const path = require("path");
-const dir = path.join(__dirname, "../public");
+const dir = path.join(__dirname, "../images");
 console.log("DIRECTORY IS ", dir);
 fs.readdir(dir, (error, files) => {
   if (error) {
@@ -11,24 +11,18 @@ fs.readdir(dir, (error, files) => {
   files.forEach((file) => {
     console.log(file);
   });
-});
-fs.readFile("tay.jfif", (error, data) => {
-  if (error) throw error;
-  var image = new Image({
-    name: "Taylor",
-    data: data,
-    contentType: "image/jpeg",
-  });
-  Image.find({ name: "Taylor" }, (error, people) => {
-    if (error) {
-      image.save((error) => {
-        if (error) console.log(error);
-        else {
-          console.log("Image Saved successfully");
-        }
+  files.forEach((file) => {
+    fs.readFile("../images/" + file, (error, data) => {
+      if (error) throw error;
+      var image = new Image({
+        name: file,
+        data: new Buffer.from(data, "binary"),
+        contentType: "image/jpeg",
       });
-    } else {
-      console.log("Image already found cannot insert again");
-    }
+      image.save(function (error) {
+        if (error == null) console.log("Image successfully inserted");
+        else console.error.bind("Error inserting an image into MongoDB");
+      });
+    });
   });
 });
