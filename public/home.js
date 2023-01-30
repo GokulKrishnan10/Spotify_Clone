@@ -44,9 +44,6 @@ fetch("http://localhost:3000/getimages")
   .catch((error) => console.log("No error", error));
 
 function onClick() {
-  // fetch("localhost:3000")
-  //   .then((res) => {})
-  //   .catch((error) => {});
   window.location = "home.html";
 }
 function signUp() {

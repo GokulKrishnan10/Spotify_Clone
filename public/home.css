@@ -74,7 +74,7 @@ i {
   margin: 1%;
   padding: 5px;
   border: 3px solid black;
-  width: 6cm;
+  width: 5cm;
   color: white;
   height: 8cm;
   background-color: rgb(23, 23, 23);
@@ -82,10 +82,14 @@ i {
   border: none;
 }
 
+#abs {
+  position: fixed;
+}
+
 .song img {
   max-height: 70%;
-  max-width: 6cm;
-  width: 6cm;
+  max-width: 5cm;
+  width: 5cm;
   border-radius: 10px;
 }
 
