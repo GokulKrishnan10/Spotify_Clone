@@ -8,6 +8,8 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+const salt = 10;
+const bcrypt = require("bcrypt");
 app.listen(PORT, () => {
   console.log(`SERVER RUNNING ON PORT ${PORT}`);
 });
@@ -54,30 +56,49 @@ app.get("/individual", (req, res) => {
 app.post("/submitted", (req, res) => {
   var forms = req.body;
   console.log(forms);
-  const newUser = new User({
-    email: forms.mail,
-    password: forms.password,
-    dob: forms.birthday,
-    gender: forms.gender,
-  });
-  newUser.save(function (error) {
-    console.log("error occured ", error);
-    if (error === null) res.send("<h1>Successfully Created</h1>");
-    else res.send("<h1>User Exists</h1>");
-  });
+  const password = forms.password;
+  bcrypt
+    .hash(password, salt)
+    .then((hashedpassword) => hashedpassword)
+    .then((data) => {
+      console.log(data);
+      const newUser = new User({
+        email: forms.mail,
+        password: data,
+        dob: forms.birthday,
+        gender: forms.gender,
+      });
+      newUser.save(function (error) {
+        console.log("error occured ", error);
+        if (error === null) res.send("<h1>Successfully Created</h1>");
+        else res.send("<h1>User Exists</h1>");
+      });
+    });
 });
 
 app.post("/loggedin", (req, res) => {
   var forms = req.body;
   const newUser = {
     email: forms.mail,
-    password: forms.password,
   };
   User.find(newUser)
     .then((data) => {
       console.log(data);
       if (data.length === 0) res.send("<h1>User Does not exist</h1>");
-      else res.send("<h1>Successfully Logged in</h1>");
+      else {
+        // console.log(forms.password + "-----------------" + data[0].password);
+        bcrypt
+          .compare(forms.password, data[0].password)
+          .then((isMatch) => {
+            console.log("Match ", isMatch);
+            if (isMatch) {
+              res.send("Successfully Logged in");
+            } else {
+              res.send("<h1>User Does not exist</h1>");
+            }
+          })
+          .catch((error) => console.log(error));
+      }
     })
     .catch((error) => {
       res.send("User doesn't exist");

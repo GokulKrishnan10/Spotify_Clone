@@ -29,14 +29,14 @@ fetch("http://localhost:3000/getimages")
           div.addEventListener("click", () => {
             window.location = "individual";
           });
-          div.addEventListener("mouseout", () => {
-            play.style.display = "none";
-          });
-          div.addEventListener("mouseover", () => {
-            play.style.display = "block";
-            play.style.transform = "translate(-10px)";
-            play.style.transition = "700ms";
-          });
+          // div.addEventListener("mouseout", () => {
+          //   play.style.display = "none";
+          // });
+          // div.addEventListener("mouseover", () => {
+          //   play.style.display = "block";
+          //   play.style.transform = "translate(-10px)";
+          //   play.style.transition = "700ms";
+          // });
         })
         .catch((error) => console.log(error));
     });
