@@ -8,6 +8,7 @@ body {
   margin: 0;
 }
 .side-div {
+  resize: horizontal;
   flex: 30%;
   color: white;
   background-color: rgb(0, 0, 0);
@@ -84,6 +85,17 @@ i {
 
 #abs {
   position: fixed;
+}
+
+#search {
+  margin-top: 1%;
+  width: 6cm;
+  margin-left: 20%;
+  text-align: center;
+  font-size: 0.5cm;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 1cm;
+  border-radius: 15px;
 }
 
 .song img {

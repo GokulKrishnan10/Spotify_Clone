@@ -7,7 +7,8 @@ window.onload = function () {
           .init({
             client_id:
               "889525092335-q8fnc297secat91ura28bl9e5d7q067o.apps.googleusercontent.com",
-            scope: "email",
+            scope: "https://www.googleapis.com/auth/plus.login",
+            prompt: "Choose account",
             plugin_name: "Spotify",
           })
           .then(function () {
@@ -20,11 +21,12 @@ window.onload = function () {
                 // Get user's ID token and basic profile information
                 var id_token = googleUser.getAuthResponse().id_token;
                 var profile = googleUser.getBasicProfile();
-                console.log("profile=-------------", profile);
+
                 // Log the user's ID token and basic profile information
                 console.log("ID Token: " + id_token);
                 console.log("Name: " + profile.getName());
                 console.log("Email: " + profile.getEmail());
+                console.log("Access Token : " + profile.getId());
               });
           });
       });

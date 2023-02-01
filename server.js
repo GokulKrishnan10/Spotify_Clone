@@ -34,9 +34,6 @@ app.get("/getimages", (req, res) => {
   });
 });
 
-app.get("/no", (req, res) => {
-  res.send("<h1>No........</h1>");
-});
 app.get("/spotify", (req, res) => {
   res.sendFile(__dirname + "/home.html");
 });
@@ -86,7 +83,6 @@ app.post("/loggedin", (req, res) => {
       console.log(data);
       if (data.length === 0) res.send("<h1>User Does not exist</h1>");
       else {
-        // console.log(forms.password + "-----------------" + data[0].password);
         bcrypt
           .compare(forms.password, data[0].password)
           .then((isMatch) => {
