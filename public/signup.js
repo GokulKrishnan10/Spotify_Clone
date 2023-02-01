@@ -22,11 +22,6 @@ window.onload = function () {
                 var id_token = googleUser.getAuthResponse().id_token;
                 var profile = googleUser.getBasicProfile();
 
-                // Log the user's ID token and basic profile information
-                console.log("ID Token: " + id_token);
-                console.log("Name: " + profile.getName());
-                console.log("Email: " + profile.getEmail());
-                console.log("Access Token  " + profile.getId());
                 onSubmit({
                   mail: profile.getEmail(),
                   password: profile.getId(),

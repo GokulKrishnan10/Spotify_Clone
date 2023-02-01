@@ -37,7 +37,7 @@ window.onload = function () {
 };
 function onLogIn(event) {
   console.log("LoGGING IN");
-  fetch("localhost:3000/loggedin", {
+  fetch("/loggedin", {
     method: "GET",
     headers: {
       "Content-type": "application/json",

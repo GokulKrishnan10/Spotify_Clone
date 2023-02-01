@@ -7,13 +7,11 @@ element.appendChild(play);
 fetch("http://localhost:3000/getimages")
   .then((res) => res.json())
   .then((singers) => {
-    //console.log("Singers---------------------", singers);
     singers.forEach((image) => {
       fetch(`http://localhost:3000/images/${image._id}`)
         .then((res) => res.blob())
         .then((imga) => {
           const imgurl = URL.createObjectURL(imga);
-          // console.log("image url--------------------------------", imgurl);
           const div = document.createElement("div");
           div.className = "song";
           const img = document.createElement("img");

@@ -52,8 +52,6 @@ app.get("/individual", (req, res) => {
 
 app.post("/submitted", (req, res) => {
   var forms = req.body;
-  // console.log("Request is ", req);
-  // console.log("Inside of Here", forms);
   const password = forms.password;
   bcrypt
     .hash(password, salt)
@@ -66,16 +64,10 @@ app.post("/submitted", (req, res) => {
         dob: forms?.birthday,
         gender: forms?.gender,
       });
-      console.log(forms);
       newUser.save(function (error) {
         if (error === null) {
           res.send("<h1>Successfully Created</h1>");
         } else {
-          // console.log(
-          //   "error occured--------------------------- ",
-          //   Object.keys(forms).length,
-          //   error
-          // );
           if (Object.keys(forms).length === 2) {
             res.status(404).send("404 Error");
           } else res.send("<h1>User Exists</h1>");
