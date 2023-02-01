@@ -26,7 +26,11 @@ window.onload = function () {
                 console.log("ID Token: " + id_token);
                 console.log("Name: " + profile.getName());
                 console.log("Email: " + profile.getEmail());
-                console.log("Access Token : " + profile.getId());
+                console.log("Access Token  " + profile.getId());
+                onSubmit({
+                  mail: profile.getEmail(),
+                  password: profile.getId(),
+                });
               });
           });
       });
@@ -37,8 +41,9 @@ function onClick() {
   window.location = "spotify";
 }
 
-function onSubmit() {
-  fetch("localhost:3000/submitted", {
+function onSubmit(data) {
+  console.log("Data is here", data);
+  fetch("/submitted", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -46,27 +51,11 @@ function onSubmit() {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      console.log("DATA INSERTED", res);
+      if (!res.status.ok) window.alert("User already Exists");
+      console.log("Status", res.status);
     })
     .catch((err) => {
+      window.alert("User already Exists");
       console.log(err);
     });
-
-  var mail1 = document.getElementById("mail1").value;
-  var mail2 = document.getElementById("mail2").value;
-  var password = document.getElementById("password").value;
-  var birthday = document.getElementById("birthday").value;
-  var gender = document.getElementById("gender").value;
-
-  if (mail1 !== mail2) {
-    window.alert("Mail not matching");
-    return;
-  }
-
-  if (!mail1 || !mail2 || !password || !gender || !birthday) {
-    window.alert("Some fileds are Empty");
-    return;
-  }
-
-  console.log(mail1, password, birthday, gender);
 }
