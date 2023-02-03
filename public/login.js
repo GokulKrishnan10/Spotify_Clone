@@ -30,22 +30,30 @@ window.onload = function () {
                 console.log("Name: " + profile.getName());
                 console.log("Email: " + profile.getEmail());
                 console.log("Access Token : " + profile.getId());
+                onLogIn({
+                  mail: profile.getEmail(),
+                  password: profile.getId(),
+                });
               });
           });
       });
     });
 };
-function onLogIn(event) {
+function onLogIn(data) {
   console.log("LoGGING IN");
-  fetch("/loggedin", {
-    method: "GET",
+  fetch("http://localhost:3000/loggedin", {
+    method: "POST",
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.parse(data),
+    body: JSON.stringify(data),
   })
     .then((res) => {
-      console.log("DATA INSERTED", res);
+      if (res.ok) {
+        console.log("No---------------------------");
+        window.alert("Sucessfully Logged In");
+      }
+      console.log("DATA PRESENT", res, res.status.ok);
     })
     .catch((err) => {
       console.log(err);

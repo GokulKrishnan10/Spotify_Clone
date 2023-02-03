@@ -38,7 +38,7 @@ function onClick() {
 
 function onSubmit(data) {
   console.log("Data is here", data);
-  fetch("/submitted", {
+  fetch("localhost:3000/submitted", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

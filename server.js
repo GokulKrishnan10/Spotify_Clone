@@ -34,6 +34,10 @@ app.get("/getimages", (req, res) => {
   });
 });
 
+app.get("/profile", (req, res) => {
+  res.sendFile(__dirname + "/profile.html");
+});
+
 app.get("/spotify", (req, res) => {
   res.sendFile(__dirname + "/home.html");
 });
@@ -81,6 +85,7 @@ app.post("/loggedin", (req, res) => {
   const newUser = {
     email: forms.mail,
   };
+  console.log("Forms is ", forms);
   User.find(newUser)
     .then((data) => {
       console.log(data);

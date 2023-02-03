@@ -314,3 +314,60 @@ a {
 .info {
   font-size: 15px;
 }
+@media only screen and (max-width: 900px) {
+  #search {
+    display: none;
+  }
+  .side-div1 {
+    display: none;
+  }
+  .user {
+    width: 100%;
+  }
+}
+.user {
+  background-color: white;
+  width: 55%;
+  height: 100%;
+  margin-right: 3%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.user h1,
+h3 {
+  margin-left: 3%;
+}
+.user h3 {
+  color: #888888;
+  font-weight: 450;
+}
+.user hr {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.side-div1 {
+  width: 20%;
+  margin-left: 12%;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  height: 100%;
+}
+.side-div1 li {
+  font-weight: 700;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.side-div1 li:hover {
+  border-left: 15px solid greenyellow;
+  cursor: pointer;
+}
+#edit {
+  margin-top: 5%;
+  border-radius: 25px;
+  border-color: #888888;
+  width: 3cm;
+  height: 1cm;
+  margin-left: 3%;
+  background-color: white;
+}
+#edit:hover {
+  cursor: pointer;
+}
