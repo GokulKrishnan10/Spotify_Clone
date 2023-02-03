@@ -14,25 +14,6 @@ app.listen(PORT, () => {
   console.log(`SERVER RUNNING ON PORT ${PORT}`);
 });
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Hello There");
-});
-
-app.get("/images/:id", (req, res) => {
-  image.findById(req.params.id, (error, img) => {
-    if (error) res.status(500).send(error);
-    res.contentType(img.contentType);
-    console.log(img.data);
-    res.send(img.data);
-  });
-});
-
-app.get("/getimages", (req, res) => {
-  image.find({}, function (error, results) {
-    if (error) res.status(500).send(error);
-    res.send(results);
-  });
-});
 
 app.get("/profile", (req, res) => {
   res.sendFile(__dirname + "/profile.html");
@@ -52,6 +33,25 @@ app.get("/login", (req, res) => {
 
 app.get("/individual", (req, res) => {
   res.sendFile(__dirname + "/individual.html");
+});
+app.get("/", (req, res) => {
+  res.send("Hello There");
+});
+
+app.get("/images/:id", (req, res) => {
+  image.findById(req.params.id, (error, img) => {
+    if (error) res.status(500).send(error);
+    res.contentType(img.contentType);
+    console.log(img.data);
+    res.send(img.data);
+  });
+});
+
+app.get("/getimages", (req, res) => {
+  image.find({}, function (error, results) {
+    if (error) res.status(500).send(error);
+    res.send(results);
+  });
 });
 
 app.post("/submitted", (req, res) => {
