@@ -314,15 +314,28 @@ a {
 .info {
   font-size: 15px;
 }
+@media only screen and (max-width: 700px) {
+  .side-div1 li {
+    color: black;
+  }
+  #top3 {
+    display: none;
+  }
+}
 @media only screen and (max-width: 900px) {
   #search {
     display: none;
   }
   .side-div1 {
-    display: none;
+    margin-left: 0%;
+    width: 20%;
+  }
+  .side-div1 li {
+    font-size: 16px;
   }
   .user {
     width: 100%;
+    margin-right: 0%;
   }
 }
 .user {
@@ -333,12 +346,13 @@ a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .user h1,
-h3 {
+label {
   margin-left: 3%;
 }
-.user h3 {
+.user label {
   color: #888888;
   font-weight: 450;
+  font-size: 20px;
 }
 .user hr {
   margin-left: 3%;
